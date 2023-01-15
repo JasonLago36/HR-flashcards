@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="style.css" />
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<header>
+			<div class="logoDiv">
+				<img id="logo" src="./images/script.png" alt="logo" />
+				<h1>Flasher</h1>
+			</div>
+			<div class="fieldDiv">
+				<form action="">
+					<label for="question">Question:
+					<input
+						id="questionField"
+						name="question"
+						type="text"
+						placeholder="Type in your Question"
+						required
+					/>
+					</label>
+					<label for="answer">Answer:
+						<input
+							id="answerField"
+							type="text"
+							name="answer"
+							placeholder="Whats the answer?"
+							required
+						/>
+					</label>
+					<label>
+						Example:
+						<input
+							type="text"
+							name="Example"
+							id="exampleField"
+							placeholder="Example"
+							required
+						/>
+					</label>
+					<label for="typeOf">Language:
+					<select name="typeOf" id="typeOf">
+						<option value="General">General</option>
+						<option value="HTML">HTML</option>
+						<option value="CSS">CSS</option>
+						<option value="Javascript">Javascript</option>
+						<option value="React">React</option>
+						<option value="Python">Python</option>
+						<option value="Django">Django</option>
+					</select>
+				</label>
+					<button type='reset' class="addBtn" onclick="add()">Add</button>
+				</form>
+			</div>
+		</header>
+		<div class="cardContainer">
+			<!--Card begins here-->
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>
