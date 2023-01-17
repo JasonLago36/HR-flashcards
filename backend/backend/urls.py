@@ -15,8 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.shortcuts import redirect
+
+
+def redirect_to_home(request):
+    return redirect('flashcard')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include ('flashcard.urls'))
+    path('flasher/',include ('flashcard.urls')),
+    path('',redirect_to_home),
 ]
