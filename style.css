@@ -120,9 +120,13 @@ form {
 }
 
 .deleteBtnStyle {
-	background-color: white;
+	background-color: #abc4b0;
 	border: 2px solid black;
+	border-radius: 5px;
 	color: black;
+	padding: 0px 15px 0px 15px;
+	
+
 }
 
 .deleteBtnStyle:active {

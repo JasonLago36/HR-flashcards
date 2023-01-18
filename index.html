@@ -5,7 +5,8 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>HR Flasher App</title>
+		<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 	</head>
 	<body>
 		<header>
@@ -15,16 +16,18 @@
 			</div>
 			<div class="fieldDiv">
 				<form action="">
-					<label for="question">Question:
-					<input
-						id="questionField"
-						name="question"
-						type="text"
-						placeholder="Type in your Question"
-						required
-					/>
+					<label for="question"
+						>Question:
+						<input
+							id="questionField"
+							name="question"
+							type="text"
+							placeholder="Type in your Question"
+							required
+						/>
 					</label>
-					<label for="answer">Answer:
+					<label for="answer"
+						>Answer:
 						<input
 							id="answerField"
 							type="text"
@@ -43,22 +46,24 @@
 							required
 						/>
 					</label>
-					<label for="typeOf">Language:
-					<select name="typeOf" id="typeOf">
-						<option value="General">General</option>
-						<option value="HTML">HTML</option>
-						<option value="CSS">CSS</option>
-						<option value="Javascript">Javascript</option>
-						<option value="React">React</option>
-						<option value="Python">Python</option>
-						<option value="Django">Django</option>
-					</select>
-				</label>
-					<button type='reset' class="addBtn" onclick="add()">Add</button>
+					<label for="typeOf"
+						>Language:
+						<select name="typeOf" id="typeOf">
+							<option value="General">General</option>
+							<option value="HTML">HTML</option>
+							<option value="CSS">CSS</option>
+							<option value="Javascript">Javascript</option>
+							<option value="React">React</option>
+							<option value="Python">Python</option>
+							<option value="Django">Django</option>
+						</select>
+					</label>
+					<button type="reset" class="addBtn" onclick="add()">Add</button>
 				</form>
 			</div>
 		</header>
 		<div class="cardContainer">
+			<button class='deleteBtnStyle'>Delete</button>
 			<!--Card begins here-->
 		</div>
 

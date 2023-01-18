@@ -29,7 +29,7 @@ function createCardBackground() {
 	const questionField = document.getElementById('questionField').value; //gets the value of the input text field
 	const answerField = document.getElementById('answerField').value; // gets the value of the input text field
 	const exampleField = document.getElementById('exampleField').value;
-    const typeField = document.getElementById('typeOf').value;
+	const typeField = document.getElementById('typeOf').value;
 	//card will be placed under the "cardContainer" div for display
 	const cardContainer = document.querySelector('.cardContainer');
 	//element creation List
@@ -39,7 +39,7 @@ function createCardBackground() {
 	const question = document.createElement('h1');
 	const flipCardBack = document.createElement('div');
 
-    //FRONT OF CARDS
+	//FRONT OF CARDS
 	cardContainer.appendChild(container);
 	container.classList.add('flip-card');
 
@@ -52,16 +52,11 @@ function createCardBackground() {
 	cardFront.appendChild(question);
 	question.innerText = `${typeField} Question:
                             ${questionField}?`;
-
-
-    // THIS BUTTON IS BROKEN, WHEN CLICKED IT CAUSES CSS "BUBBLING"
-    /*                        
+	        
 	const deleteBtn = document.createElement('button');
 	cardFront.appendChild(deleteBtn);
     deleteBtn.classList.add('deleteBtnStyle');
 	deleteBtn.innerText = 'Delete';
-    */
-
 
 	//BACK OF CARDS
 	flipCard.appendChild(flipCardBack);
@@ -69,13 +64,38 @@ function createCardBackground() {
 
 	const answer = document.createElement('h1');
 	flipCardBack.appendChild(answer);
-	answer.innerText = `Answer!
+	answer.innerText = `Answer:
                          ${answerField}!`;
 
 	const example = document.createElement('p');
 	flipCardBack.appendChild(example);
 	example.innerText = `Example: 
                         ${exampleField}`;
-}
+};
 
 
+ //This adds a event listener to the Delete btn Generated on line 56
+ const deleteBtnListener = document.querySelectorAll('.deleteBtnStyle')
+
+ deleteBtnListener.forEach(function (i){
+	 i.addEventListener('click', function(e){
+		 const parent = document.querySelector('.flip-card')
+		 //parent.removeChild(parent.lastChild)
+		 //(NOTE: THIS WILL LIKELY NEED TO CHANGE TO WORK IN THE CONTEXT OF THE CARD)
+		 //(FIRST STEP IS TO FIX CSS BUBBLING ISSUE)
+		 //SECOND STEP IS TO REMOVE THE PARRENT OF WHERE THE BUTTON IS CURRENTLY LOCATED. 
+		 //POTENTIAL SOLUTION! parent.parentElement.remove()
+		 //POTENTIAL ISSUES IS THIS MAY REMOVE THE ACTUAL CONTAINER THAT HOUSES THE CARDS 
+		 // IF SO WE CAN FIX THIS BY CHANGING WHERE THE QUERY SELECTOR TO THE FLIP-CARD CLASSES CLOSEST CHILD
+		 // OTHER SOLUTION AND LIKELY THE BETTER OF THEM WOULD BE TO USE THE TARGET METHOD
+		 parent.remove()
+
+	 })
+ })
+
+
+ const action = document.getElementById('slimer');
+
+ action.addEventListener('click', function (){
+	action.style.visibility = "hidden";
+ })
