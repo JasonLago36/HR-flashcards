@@ -52,10 +52,10 @@ function createCardBackground() {
 	cardFront.appendChild(question);
 	question.innerText = `${typeField} Question:
                             ${questionField}?`;
-	        
+
 	const deleteBtn = document.createElement('button');
 	cardFront.appendChild(deleteBtn);
-    deleteBtn.classList.add('deleteBtnStyle');
+	deleteBtn.classList.add('deleteBtnStyle');
 	deleteBtn.innerText = 'Delete';
 
 	//BACK OF CARDS
@@ -69,33 +69,38 @@ function createCardBackground() {
 
 	const example = document.createElement('p');
 	flipCardBack.appendChild(example);
-	example.innerText = `Example: 
+	example.innerText = `Example:
                         ${exampleField}`;
-};
+}
 
+//This adds a event listener to the Delete btn Generated on line 56
+const deleteBtnListener = document.querySelectorAll('.deleteBtnStyle');
 
- //This adds a event listener to the Delete btn Generated on line 56
- const deleteBtnListener = document.querySelectorAll('.deleteBtnStyle')
+deleteBtnListener.forEach(function (i) {
+	i.addEventListener('click', function (e) {
+		const parent = document.querySelector('.flip-card');
+		parent.removeChild(parent.lastChild);
+		//(NOTE: THIS WILL LIKELY NEED TO CHANGE TO WORK IN THE CONTEXT OF THE CARD)
+		//(FIRST STEP IS TO FIX CSS BUBBLING ISSUE)
+		//SECOND STEP IS TO REMOVE THE PARRENT OF WHERE THE BUTTON IS CURRENTLY LOCATED.
+		//POTENTIAL SOLUTION! parent.parentElement.remove()
+		//POTENTIAL ISSUES IS THIS MAY REMOVE THE ACTUAL CONTAINER THAT HOUSES THE CARDS
+		// IF SO WE CAN FIX THIS BY CHANGING WHERE THE QUERY SELECTOR TO THE FLIP-CARD CLASSES CLOSEST CHILD
+		// OTHER SOLUTION AND LIKELY THE BETTER OF THEM WOULD BE TO USE THE TARGET METHOD
+		parent.remove();
+	});
+});
 
- deleteBtnListener.forEach(function (i){
-	 i.addEventListener('click', function(e){
-		 const parent = document.querySelector('.flip-card')
-		 //parent.removeChild(parent.lastChild)
-		 //(NOTE: THIS WILL LIKELY NEED TO CHANGE TO WORK IN THE CONTEXT OF THE CARD)
-		 //(FIRST STEP IS TO FIX CSS BUBBLING ISSUE)
-		 //SECOND STEP IS TO REMOVE THE PARRENT OF WHERE THE BUTTON IS CURRENTLY LOCATED. 
-		 //POTENTIAL SOLUTION! parent.parentElement.remove()
-		 //POTENTIAL ISSUES IS THIS MAY REMOVE THE ACTUAL CONTAINER THAT HOUSES THE CARDS 
-		 // IF SO WE CAN FIX THIS BY CHANGING WHERE THE QUERY SELECTOR TO THE FLIP-CARD CLASSES CLOSEST CHILD
-		 // OTHER SOLUTION AND LIKELY THE BETTER OF THEM WOULD BE TO USE THE TARGET METHOD
-		 parent.remove()
+const addBtn = document.getElementById('addBtn');
+addBtn.addEventListener('click', async () => {
+	const url = 'https://localhost:8000/api/flashcard/';
+	const response = await fetch(url);
+	console.log(response);
+	const data = await response.json();
+});
 
-	 })
- })
+const action = document.getElementById('slimer');
 
-
- const action = document.getElementById('slimer');
-
- action.addEventListener('click', function (){
-	action.style.visibility = "hidden";
- })
+action.addEventListener('click', function () {
+	action.style.visibility = 'hidden';
+});
