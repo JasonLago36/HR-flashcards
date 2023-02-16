@@ -1,3 +1,10 @@
+:root{
+	--main-bg-color: #edf2fb;
+	--nav-bar-color: #759CC9;
+	--front-of-card: #ccdbfd;
+	--back-of-card: #d7e3fc;
+	--button-color: #AEAEAE;
+}
 * {
 	margin: 0;
 	padding: 0;
@@ -5,7 +12,7 @@
 }
 
 body {
-	background: #181818;
+	background: var(--main-bg-color);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -18,12 +25,12 @@ header {
 	justify-content: center;
 	align-items: center;
 	flex-direction: wrap;
-	background-color:#00acee;
+	background-color: var(--nav-bar-color);
 	position: sticky;
 	top: 0;
 	z-index: 10;
-	width: auto;
-	height: 10vh;
+	width: 100vw;
+	height: 50%;
 	overflow: hidden;
 	margin: 0 auto;
 }
@@ -38,24 +45,16 @@ header {
 	margin-right: 10%;
 }
 
-input {
-	border-radius: 5px;
-	padding-left: 2px;
-}
-select {
-	padding-left: 2px;
-	border-radius: 5px;
-	border: 1px solid black;
+input{
+	margin: 5px;
+	background-color: var(--main-bg-color)
 }
 
-label {
-	margin-left: 10px;
-	font-weight: bolder;
-}
 form {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-wrap: wrap;
 }
 
 .cardContainer {
@@ -111,7 +110,7 @@ form {
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-	background-color: #00acee;
+	background-color: var(--nav-bar-color);
 	color: black;
 	border-radius: 5%;
 }
@@ -119,20 +118,23 @@ form {
 /* Style the back side */
 .flip-card-back {
 	line-height: 2rem;
-	background-color: #00acee;
+	background-color: var(--back-of-card);
 	color: black;
 	border-radius: 5%;
 	transform: rotateY(180deg);
 }
 
 .deleteBtnStyle {
-	background-color: #abc4b0;
-	border: 2px solid black;
-	border-radius: 5px;
-	color: black;
-	padding: 0px 15px 0px 15px;
-	
-
+	background-color: var(--button-color);
+	font-weight: bolder;
+	border-radius: 10px;
+	padding: 5px 10px 5px 10px;
+	font-size: 1.3rem;
+	height:2.3rem;
+	width: 5rem;
+	cursor: pointer;
+	font-family: 'Sofia Sans', sans-serif;
+	margin-left: 10px;
 }
 
 .deleteBtnStyle:active {
@@ -141,16 +143,20 @@ form {
 }
 
 .addBtn {
-	font-size: 1.3rem;
+	background-color: var(--button-color);
 	font-weight: bolder;
-	margin-top: 5px;
-	border-radius: 25px;
-	margin-left: 10px;
-	background-color: #AAB8C2;
-	padding: 10px 30px 10px 30px;
+	border-radius: 10px;
+	padding: 5px 10px 5px 10px;
+	font-size: 1.3rem;
+	height:2.3rem;
+	width: 5rem;
 	cursor: pointer;
 	font-family: 'Sofia Sans', sans-serif;
-	
+	margin-left: 10px;
+}
+.addBtn:active {
+	background-color: black;
+	color: white;
 }
 
 .logoDiv {
@@ -173,8 +179,8 @@ form {
 
 /* This code changes the look of the input fields in the header */
 #questionField, #answerField, #exampleField, #typeOf {
-	border-radius: 25px;
-	padding: 7px 20px 7px 20px; 
+	border-radius: 10px;
+	padding: 5px 10px 5px 10px;
 	font-size: 1.3rem;
 }
 
@@ -183,4 +189,3 @@ form {
 	text-align: center;
 }
 */
-

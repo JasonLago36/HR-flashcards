@@ -5,23 +5,24 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@800&display=swap" rel="stylesheet">
+		<title>Flasher</title>
+		<link rel="shortcut icon" href="/images/favicon.ico" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Sofia+Sans&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@800&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<header>
-			<div class="logoDiv">
-				<img id="logo" src="./images/script.png" alt="logo" />
-				<h1>Flasher</h1>
-			</div>
 			<div class="fieldDiv">
-				<form action="">
+				<form action="" method="post">
 					<!--QUESTION TEXT BOX-->
-					<label for="question" class="labelText">Question:
 					<input
 						id="questionField"
 						name="question"
@@ -29,30 +30,24 @@
 						placeholder="Type in your Question"
 						required
 					/>
-					</label>
 					<!--ANSWER TEXT BOX-->
-					<label for="answer" class="labelText">Answer:
-						<input
-							id="answerField"
-							type="text"
-							name="answer"
-							placeholder="Whats the answer?"
-							required
-						/>
-					</label>
+
+					<input
+						id="answerField"
+						type="text"
+						name="answer"
+						placeholder="Whats the answer?"
+						required
+					/>
 					<!--EXAMPLE TEXT BOX-->
-					<label class="labelText">
-						Example:
-						<input
-							type="text"
-							name="Example"
-							id="exampleField"
-							placeholder="Example"
-							required
-						/>
-					</label>
+					<input
+						type="text"
+						name="Example"
+						id="exampleField"
+						placeholder="Example"
+						required
+					/>
 					<!--CATEGORY DROP DOWN MENU-->
-					<label for="typeOf">Language:
 					<select name="typeOf" id="typeOf">
 						<option value="General">General</option>
 						<option value="HTML">HTML</option>
@@ -62,10 +57,11 @@
 						<option value="Python">Python</option>
 						<option value="Django">Django</option>
 					</select>
-				</label>
-					<button id="addBtn" type='reset' class="addBtn" onclick="add()">Add</button>
+					<button id="addBtn" type="submit" class="addBtn" >
+						Add
+					</button>
+					<button class="deleteBtnStyle">Delete</button>
 				</form>
-				<button class='deleteBtnStyle'>DELETE</button>
 			</div>
 		</header>
 		<div class="cardContainer">
