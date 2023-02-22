@@ -54,6 +54,19 @@ function createCardBackground() {
 	cardFront.appendChild(deleteBtn);
 	deleteBtn.classList.add('deleteBtnStyle');
 	deleteBtn.innerText = 'Delete';
+	deleteBtn.addEventListener('click', (event) => {
+		event.stopPropagation();
+		const parent = document.querySelector('.flip-card');
+		parent.removeChild(parent.lastChild);
+		//(NOTE: THIS WILL LIKELY NEED TO CHANGE TO WORK IN THE CONTEXT OF THE CARD)
+		//(FIRST STEP IS TO FIX CSS BUBBLING ISSUE)
+		//SECOND STEP IS TO REMOVE THE PARENT OF WHERE THE BUTTON IS CURRENTLY LOCATED.
+		//POTENTIAL SOLUTION! parent.parentElement.remove()
+		//POTENTIAL ISSUES IS THIS MAY REMOVE THE ACTUAL CONTAINER THAT HOUSES THE CARDS
+		// IF SO WE CAN FIX THIS BY CHANGING WHERE THE QUERY SELECTOR TO THE FLIP-CARD CLASSES CLOSEST CHILD
+		// OTHER SOLUTION AND LIKELY THE BETTER OF THEM WOULD BE TO USE THE TARGET METHOD
+		parent.remove();
+	});
 
 	//BACK OF CARDS
 	flipCard.appendChild(flipCardBack);
@@ -75,7 +88,8 @@ function createCardBackground() {
 
 
 const addBtn = document.getElementById('addBtn');
-addBtn.addEventListener('click', async () => {
+addBtn.addEventListener('click', async (event) => {
+	event.preventDefault();
 	const url = 'https://localhost:8000/api/flashcard/';
 	const response = await fetch(url);
 	console.log(response);
@@ -87,22 +101,4 @@ const addButton = document.getElementById('addBtn')
 addButton.addEventListener('click', () => {
 	cardMaker();
 	createCardBackground();
-})
-
-//This adds a event listener to the Delete btn Generated on line 56
-const deleteBtnListener = document.querySelectorAll('.deleteBtnStyle');
-
-deleteBtnListener.forEach( (i) => {
-	i.addEventListener('click',  () => {
-		const parent = document.querySelector('.flip-card');
-		parent.removeChild(parent.lastChild);
-		//(NOTE: THIS WILL LIKELY NEED TO CHANGE TO WORK IN THE CONTEXT OF THE CARD)
-		//(FIRST STEP IS TO FIX CSS BUBBLING ISSUE)
-		//SECOND STEP IS TO REMOVE THE PARENT OF WHERE THE BUTTON IS CURRENTLY LOCATED.
-		//POTENTIAL SOLUTION! parent.parentElement.remove()
-		//POTENTIAL ISSUES IS THIS MAY REMOVE THE ACTUAL CONTAINER THAT HOUSES THE CARDS
-		// IF SO WE CAN FIX THIS BY CHANGING WHERE THE QUERY SELECTOR TO THE FLIP-CARD CLASSES CLOSEST CHILD
-		// OTHER SOLUTION AND LIKELY THE BETTER OF THEM WOULD BE TO USE THE TARGET METHOD
-		parent.remove();
-	});
 });

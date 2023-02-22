@@ -1,9 +1,10 @@
-:root{
+:root {
 	--main-bg-color: #edf2fb;
-	--nav-bar-color: #759CC9;
+	--nav-bar-color: #759cc9;
 	--front-of-card: #ccdbfd;
 	--back-of-card: #d7e3fc;
-	--button-color: #AEAEAE;
+	--button-color: #aeaeae;
+	--font-button: ;
 }
 * {
 	margin: 0;
@@ -30,7 +31,7 @@ header {
 	top: 0;
 	z-index: 10;
 	width: 100vw;
-	height: 50%;
+	height: 10%;
 	overflow: hidden;
 	margin: 0 auto;
 }
@@ -45,9 +46,9 @@ header {
 	margin-right: 10%;
 }
 
-input{
+input {
 	margin: 5px;
-	background-color: var(--main-bg-color)
+	background-color: var(--main-bg-color);
 }
 
 form {
@@ -125,38 +126,44 @@ form {
 }
 
 .deleteBtnStyle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background-color: var(--button-color);
 	font-weight: bolder;
 	border-radius: 10px;
-	padding: 5px 10px 5px 10px;
+	padding: 10px 20px 10px 20px;
 	font-size: 1.3rem;
-	height:2.3rem;
-	width: 5rem;
+	height: 2.3rem;
+	width: 6rem;
+	
 	cursor: pointer;
 	font-family: 'Sofia Sans', sans-serif;
 	margin-left: 10px;
 }
 
 .deleteBtnStyle:active {
-	background-color: black;
-	color: white;
+	box-shadow: inset 1px 1px 1px black;
 }
 
 .addBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background-color: var(--button-color);
 	font-weight: bolder;
 	border-radius: 10px;
 	padding: 5px 10px 5px 10px;
 	font-size: 1.3rem;
-	height:2.3rem;
-	width: 5rem;
+	height: 2.3rem;
+	width: 6rem;
 	cursor: pointer;
 	font-family: 'Sofia Sans', sans-serif;
 	margin-left: 10px;
+	padding: 3px;
 }
 .addBtn:active {
-	background-color: black;
-	color: white;
+	box-shadow: inset 1px 1px 1px black;
 }
 
 .logoDiv {
@@ -178,7 +185,10 @@ form {
 }
 
 /* This code changes the look of the input fields in the header */
-#questionField, #answerField, #exampleField, #typeOf {
+#questionField,
+#answerField,
+#exampleField,
+#typeOf {
 	border-radius: 10px;
 	padding: 5px 10px 5px 10px;
 	font-size: 1.3rem;
@@ -189,3 +199,7 @@ form {
 	text-align: center;
 }
 */
+.icon {
+	height: 20px;
+	width: 20px;
+}
